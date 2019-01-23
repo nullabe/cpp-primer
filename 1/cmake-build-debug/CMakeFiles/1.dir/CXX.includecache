@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nlbe/nullabe/cpp/cpp_primer/1/Sales_item.h
+iostream
+-
+string
+-
+
+/home/nlbe/nullabe/cpp/cpp_primer/1/main.cpp
+iostream
+-
+Sales_item.h
+/home/nlbe/nullabe/cpp/cpp_primer/1/Sales_item.h
+
