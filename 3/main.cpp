@@ -547,23 +547,73 @@ int main()
 /*
  * 3.25
  */
+//int main()
+//{
+//    int grade;
+//    string result;
+//    vector<int> vgrades(11, 0);
+//
+//    while (std::cin >> grade) {
+//        if (grade <= 100) {
+//            auto it = vgrades.begin() + grade/10;
+//            ++(*it);
+//        }
+//    }
+//
+//    for (int val : vgrades) {
+//        result += std::to_string(val) + ' ';
+//    }
+//
+//    std::cout << result << std::endl;
+//    return 0;
+//}
+
+/*
+ * 3.26
+ *
+ * We can't use + operator between two iterators. What we can is calculate the distance
+ * between them (with -) and add this number on the begin iterator to have the result expected.
+ */
+
+/*
+ * 3.27
+ *
+ * Only const expr can define the array size. So only b is legal. (unsigned buf_size is not a const).
+ * c illegal because function txt_size must be declared as a constexpr function.
+ * d is illegal too, size 11 cannot contain word fundamental and a nullchar.
+ */
+
+/*
+ * 3.28
+ *
+ * int ia2[10] : 10 null ints.
+ * string sa2[10]: 10 null strings.
+ */
+
+/*
+ * 3.29
+ *
+ * Compared to vectors : array have a fixed size and can't be assigned to another array but offer better runtime performances.
+ */
+
+/*
+ * 3.30
+ *
+ * The error is in the for loop, counter used to walk through the array, must be stricly inferior to the variable used to define it.
+ * To correct it we must write the look like this (size_t ix = 0; ix < array_size; ++ix) or (auto i : ia).
+ */
+
+/*
+ * 3.31
+ */
 int main()
 {
-    int grade;
-    string result;
-    vector<int> vgrades(11, 0);
+    int array[10], count = 0;
 
-    while (std::cin >> grade) {
-        if (grade <= 100) {
-            auto it = vgrades.begin() + grade/10;
-            ++(*it);
-        }
+    for (auto &item : array) {
+        item = count;
+        ++count;
     }
 
-    for (int val : vgrades) {
-        result += std::to_string(val) + ' ';
-    }
-
-    std::cout << result << std::endl;
     return 0;
 }
