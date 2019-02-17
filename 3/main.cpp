@@ -604,16 +604,385 @@ int main()
  */
 
 /*
- * 3.31
+ * 3.31 + 3.32
  */
-int main()
-{
-    int array[10], count = 0;
+//int main()
+//{
+//    int array[10], count = 0;
+//    int arrayCopy[10];
+//
+//    for (auto &item : array) {
+//        arrayCopy[count] = item = count;
+//        ++count;
+//    }
+//
+//    return 0;
+//}
+//int main()
+//{
+//    vector<int> v1(10), v2;
+//    int count = 0;
+//
+//    for (auto it = v1.begin(); it != v1.end(); ++it, ++count) {
+//        *it = count;
+//    }
+//
+//    v2 = v1;
+//
+//    return 0;
+//}
 
-    for (auto &item : array) {
-        item = count;
-        ++count;
-    }
+/*
+ * 3.33
+ *
+ * If array scores not initialized, it cannot have 11 values set to 0, so we couldnt increment that value in the while loop.
+ */
 
-    return 0;
-}
+/*
+ * 3.34
+ *
+ * p1 += p2 - p1; Calculate difference between element2 and element1, and add this to p1. In fact, this code move p1 to p2.
+ * No invalid values because a diff can be negative.
+ */
+//int main()
+//{
+//    int arr[4] = {0, 1, 2, 3};
+//    int *p1 = &arr[3], *p2 = &arr[1];
+//
+//    p1 += p2 - p1;
+//
+//    std::cout << *p1 << std::endl;
+//
+//    return 0;
+//}
+
+/*
+ * 3.35
+ */
+//int main()
+//{
+//    int arr[4] = {5,4,7,1};
+//    int *pb = std::begin(arr), *pe = std::end(arr);
+//
+//    while (pb != pe) {
+//        *pb = 0;
+//        ++pb;
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.36 - array
+ */
+//int main()
+//{
+//    int arr1[4] = {5,4,7,1};
+//    int arr2[5] = {5,4,7,1};
+//    int *pb1 = std::begin(arr1), *pb2 = std::begin(arr2), *pe = std::end(arr1);
+//    bool sameArray = true;
+//
+//    while (sameArray && pb1 != pe) {
+//        sameArray = (*pb1 == *pb2);
+//        ++pb1; ++pb2;
+//    }
+//
+//    if (!sameArray) {
+//        return -1;
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.36 - vectors
+ */
+//int main()
+//{
+//    vector<int> v1 = {1,2,3}, v2 = {1,3,3};
+//    bool sameVector = (v1.size() == v2.size());
+//    auto v1b = v1.begin(), v2b = v2.begin(), v1e = v1.end();
+//
+//    while (v1b != v1e && sameVector) {
+//        sameVector = (*v1b == *v2b);
+//        ++v1b; ++v2b;
+//    }
+//
+//    if (!sameVector) {
+//        return -1;
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.37
+ *
+ * This programm prints all chars into C-style string ca.
+ */
+
+/*
+ * 3.38
+ *
+ * Trying to add two pointers is illegal and meaningless. A pointer is a memory address, such addition, if legal, would create a pointer to an
+ * undefined address.
+ */
+
+/*
+ * 3.39 - Comparing std::strings
+ */
+//int main()
+//{
+//    std::string s1 = "Salut tu vas bien ?", s2 = "Oui et toi bro ?";
+//    std::string s1Inferior = (s1 < s2) ? "true" : "false";
+//
+//    std::cout << "s1 smaller than s2 : " << s1Inferior << std::endl;
+//
+//    return 0;
+//}
+/*
+ * 3.39 - Comparing C-style strings
+ */
+//#include <cstring>
+//int main()
+//{
+//    char s1[] = "Salut tu vas bien ?", s2[] = "Oui et toi bro ?";
+//    bool s1Inferior = (strcmp(s1, s2) < 0);
+//
+//    std::cout << "s1 smaller than s2 : " << s1Inferior << std::endl;
+//
+//    return 0;
+//}
+
+/*
+ * 3.40
+ */
+//#include <cstring>
+//int main()
+//{
+//    char s1[] = "Salut tu vas bien ?", s2[] = "Oui et toi bro ?";
+//    char sConcat[37];
+//
+//    strcpy(strcat(sConcat, s2), strcat(sConcat, s1));
+//
+//    return 0;
+//}
+
+/*
+ * 3.41
+ */
+//int main()
+//{
+//    int a1[] = {1,2,3,4};
+//    vector<int> v1(std::begin(a1), std::end(a1));
+//
+//    return 0;
+//}
+
+/*
+ * 3.42
+ */
+//int main()
+//{
+//    vector<int> v1 = {1,2,3,4};
+//    int a1[v1.size()], *pa1 = a1;
+//
+//    for (int v : v1) {
+//        *pa1 = v;
+//        ++pa1;
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.43 - 3.44 - 3.45
+ * 1 - Range for
+ * 2 - Ordinary for with subscripts
+ * 3 - Ordinary for with pointers
+ */
+
+/*
+ * 3.43 - 1
+ */
+//int main()
+//{
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (int (&row)[4] : ia) {
+//        for (int col : row) {
+//            std::cout << col << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.43 - 2
+ */
+//int main()
+//{
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (int x = 0; x < 3; ++x) {
+//        for (int y = 0; y < 4; ++y) {
+//            std::cout << ia[x][y] << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.43 - 3
+ */
+//int main()
+//{
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (int (*x)[4] = ia; x != std::end(ia); ++x) {
+//        for (int *y = *x; y != std::end(*x); ++y) {
+//            std::cout << *y << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.44 - 1
+ */
+//int main()
+//{
+//    using int_array4 = int[4];
+//
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (int_array4 &row : ia) {
+//        for (int col : row) {
+//            std::cout << col << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.44 - 2
+ */
+//int main()
+//{
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (int x = 0; x < 3; ++x) {
+//        for (int y = 0; y < 4; ++y) {
+//            std::cout << ia[x][y] << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.44 - 3
+ */
+//int main()
+//{
+//    using int_array4 = int[4];
+//
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (int_array4 *x = ia; x != std::end(ia); ++x) {
+//        for (int *y = *x; y != std::end(*x); ++y) {
+//            std::cout << *y << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.45 - 1
+ */
+//int main()
+//{
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (auto &row : ia) {
+//        for (auto col : row) {
+//            std::cout << col << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.45 - 2
+ */
+//int main()
+//{
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (auto x = 0; x < 3; ++x) {
+//        for (auto y = 0; y < 4; ++y) {
+//            std::cout << ia[x][y] << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
+/*
+ * 3.45 - 3
+ */
+//int main()
+//{
+//    int ia[3][4] = {
+//        {1, 2, 3, 4},
+//        {5, 6, 7, 8},
+//        {9, 10, 11, 12},
+//    };
+//
+//    for (auto *x = ia; x != std::end(ia); ++x) {
+//        for (auto *y = *x; y != std::end(*x); ++y) {
+//            std::cout << *y << std::endl;
+//        }
+//    }
+//
+//    return 0;
+//}
+
